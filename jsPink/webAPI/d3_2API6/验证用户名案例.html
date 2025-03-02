@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .error
+         {
+            color: red;
+            display: none;
+        }
+        .right
+         {
+            color: green;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <form  name="info" class="info">
+        <input type="text" name="uname" class="uname">
+        <button type="button" class="btn">提交</button>
+        <span class="error">选择</span>
+        <span class="right">选择</span>
+    </form>
+    
+
+    <script>
+        const info = document.querySelector('.info')
+        const uname = document.querySelector('.uname')
+        const btn = document.querySelector('.btn')
+        const error = document.querySelector('.error')
+        const right = document.querySelector('.right')
+
+        btn.addEventListener('click',function(e){
+            e.preventDefault()
+            // console.log(!/^[a-zA-Z]{6,16}$/.test(uname.value))
+            // console.log(uname.value)
+            
+            if(!/^[a-zA-Z0-9]{6,16}$/.test(uname.value)){
+                alert('只能输入6-16位字符')
+                // console.log(error.style.display )
+                
+                error.style.display  = 'inline'
+                right.style.display  = 'none'
+
+            }else{
+                console.log(uname.value)
+                error.style.display  = 'none'
+                right.style.display  = 'inline'
+
+            }
+            info.reset()
+            // error.style.display  = 'none'
+            // right.style.display  = 'none'
+
+        })
+        
+    </script>
+</body>
+</html>
