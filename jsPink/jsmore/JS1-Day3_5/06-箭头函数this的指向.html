@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const fun1 = {
+            uname:'陈都灵',
+            sayHi: function(){
+                console.log(this)
+            }
+        }
+        fun1.sayHi()
+
+        const fun2 = {
+            uname:'陈都灵2号',
+            sayHi: () => {
+                console.log(this)
+            }
+        }
+        fun2.sayHi()
+    </script>
+</body>
+</html>
