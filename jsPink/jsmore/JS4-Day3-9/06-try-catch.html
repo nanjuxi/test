@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>123</p>
+    <script>
+        function fn(){
+            try{
+                //将容易出错的代码写在这个地方
+                const p = document.querySelector('.p')
+                p.style.color='red'
+            }catch(err){//err是形参，也可以是别的名字
+                console.log(err.message)//a.message，浏览器提示的错误信息，try catch不会中断程序的运行
+                throw new Error('你看看，出错了吧')//使用throw提示的自己设置的错误信息
+            }
+            finally{
+                console.log('无论try catch执行结果如何，有一部分必须执行的代码放这里')
+                
+            }
+            console.log(111)
+            
+        }
+        fn()
+    </script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+          width: 500px;
+          height: 500px;
+          background-color: #ccc;
+          color: #fff;
+          text-align: center;
+          font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    
+<script>
+    const box = document.querySelector('.box')
+    let i = 0
+    function mouseMove(){
+        box.innerHTML = i++
+    }
+    
+    // box.addEventListener('mousemove',debounce(mouseMove,500))
+    //手写防抖函数的实现，关键是利用setTimeout定时器来实现
+    //1.首先需要设置定时器变量
+    //2.判断是否存在定时器变量，如果有，就清除，没有就添加，
+    //将需要实现的函数逻辑放进去
+    function debounce(fn,t){
+        let timer
+        return function(){
+            if(timer) clearTimeout(timer)
+            timer = setTimeout(function(){
+        fn()
+            },t)
+        } 
+    }
+
+    box.addEventListener('mousemove',debounce(mouseMove,500))
+
+</script>
+</body>
+</html>

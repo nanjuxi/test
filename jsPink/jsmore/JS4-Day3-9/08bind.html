@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击发送</button>
+    <script>
+        const btn = document.querySelector('button')
+        btn.addEventListener('click',function(){
+            this.disabled = true //禁用按钮
+            //两秒钟之后重新恢复使用
+            window.setTimeout(function(){
+                this.disabled = false//不在后面接.bind()时，this指向函数调用者，即window,
+                //添加之后，指向.bind(btn)指定的对象，即此时的this指向btn.
+            }.bind(btn),2000)
+        })
+    </script>
+</body>
+</html>

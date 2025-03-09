@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const obj={
+            uname:'陈都灵',
+            age:18,
+            skill:['sing','dance'],
+            family:{
+                name:'小铃铛',
+                alias:'嘟丝'
+            }
+        }
+
+        const o = {}
+        function deepCopy(newObj,oldObj){
+            for(let k in oldObj){ //k 是属性名
+                if(oldObj[k] instanceof Array){
+                    newObj[k] = []
+                    deepCopy(newObj[k],oldObj[k])
+                }else if(oldObj[k] instanceof Object){//对象必须写在数组下面，因为数组
+                    //也是对象，如果将Object写在上面，会导致copy的数组也按照对象{}的格式了
+                    newObj[k] = {}
+                    deepCopy(newObj[k],oldObj[k])
+                } else{
+                    //  k 是属性名 oldObj[k]是旧的属性值
+                    // newObj[k] 是创建新的属性名 newObj[k] === newObj.uname
+                    // 下面的操作相当于将旧的对象的属性值，创建并赋值给新的对象的属性名。
+                    newObj[k] = oldObj[k]
+                }
+               
+            }
+        }
+        deepCopy(o,obj)
+        o.skill[0]='host'
+        o.family.name = '嘟嘟粉丝'
+        console.log(obj);
+        console.log(o);
+        
+    </script>
+</body>
+</html>
