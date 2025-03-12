@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn{
+            background-color: #ffcccc;
+            padding: 8px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h3>事件处理的练习</h3>
+    <span 
+        class="btn"
+        onmouseover="over(this)"
+        onmouseout="out(this)"
+        onmousedown="down(this)"
+    >
+        点我
+    </span>
+    <script>
+        function over(elem){
+            elem.style.backgroundColor="#bbaaaa";
+        }
+        function out(elem){
+            elem.style.backgroundColor="#ffcccc";
+        }
+        function down(elem){
+            elem.style.fontWeight="bold";
+        }
+    </script>
+</body>
+</html>

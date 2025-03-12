@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+        let profile={
+            firstName:"小明",
+            lastname:"王"
+        };
+        let proxy=new Proxy(profile,{
+            get:function (target,proporty) {
+                if(proporty=="chineseName"){
+                    return target.lastname+target.firstName;
+                }
+                else{
+                    return target[proporty];
+                }
+            }
+        });
+        console.log(proxy.chineseName);
+        console.log(proxy.firstName);
+        */
+       //建立代理物件
+        let data={
+            price:100,
+            count:5
+        }
+       //使用代理物件，取得物件的属性资料
+        let proxy=new Proxy(data,{
+            get:function(target,property){
+                console.log(target);
+                console.log(property);
+                return target.count*target.price;
+            }
+        });
+        console.log(proxy.total);
+        
+    </script>
+</body>
+</html>

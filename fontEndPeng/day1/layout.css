@@ -1,0 +1,15 @@
+.frame {
+    display: flex;
+    justify-content: center;
+}
+
+.left{
+    /*flex: none;*/
+    background-color: red;
+}
+
+.right {
+    /*flex: none;*/
+    background-color: blue;
+}
+
